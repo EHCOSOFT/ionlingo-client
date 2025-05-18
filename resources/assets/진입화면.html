@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+        content="width=device-width,viewport-fit=cover,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>축산물품질평가원</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <div class="wrap">
+        <div class="lnb">
+            <!-- ✅ 상단 헤더 -->
+            <header class="header">
+                <!-- ☰ 메뉴 열기 버튼 -->
+                <div class="container">
+                    <button type="button" class="header-menu btn-nav-open" tabindex="0">
+                        <i class="ico ico-lg i-menu"></i>
+                    </button>
+
+                    <!-- 로고 -->
+                    <a href="javasciprt:void(0);" class="header-logo" tabindex="0">
+                        <img src="img/mo-logo.svg" alt="로고" class="normal">
+                        <img src="img/logo.svg" alt="로고" class="active">
+                    </a>
+                </div>
+            </header>
+            <div class="nav-wrap">
+                <!-- ✅ 좌측 내비게이션 메뉴 -->
+                <nav class="nav">
+                    <!-- 좌측 메뉴 상단 -->
+                    <div class="nav-top">
+                        <!-- 메뉴 닫기 버튼 -->
+                        <button type="button" class="btn-nav-remove" tabindex="0">
+                            <i class="ico ico-md i-menu-toggle"></i>
+                        </button>
+                    </div>
+                    <!-- 메뉴 리스트 -->
+                    <div class="nav-list">
+                        <!-- 🔹 상단 기능 메뉴 -->
+                        <ul class="navbar">
+                            <li>
+                                <a href="javascipt:void(0);" class="nav-item" tabindex="0">
+                                    <i class="ico ico-md i-home"></i>
+                                    <span>홈</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascipt:void(0);" class="nav-item" tabindex="0">
+                                    <i class="ico ico-md i-document-summary"></i>
+                                    <span>문서요약</span>
+                                </a>
+                            </li>
+                            <!-- 🔸 서브 메뉴 (지식 목록) -->
+                            <li class="nav-sub-item">
+                                <a href="javascipt:void(0);" class="nav-item" tabindex="0">
+                                    <i class="ico ico-md i-category"></i>
+                                    <span>카테고리1</span>
+                                </a>
+                                <ul class="nav-item-list">
+                                    <li>
+                                        <a href="javascipt:void(0);" tabindex="0">
+                                            <span>지식A</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascipt:void(0);" tabindex="0">
+                                            <span>지식B</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <!-- 🔹 일반 메뉴 반복 -->
+                            <li>
+                                <a href="javascipt:void(0);" class="nav-item" tabindex="0">
+                                    <i class="ico ico-md i-category"></i>
+                                    <span>카테고리1</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascipt:void(0);" class="nav-item" tabindex="0">
+                                    <i class="ico ico-md i-category"></i>
+                                    <span>카테고리1</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <!-- 🔹 아카이브/최근기록 -->
+                        <ul class="navbar">
+                            <li>
+                                <a href="javascipt:void(0);" class="nav-item" data-modal-id="alertModal" tabindex="0"
+                                    data-target="archive">
+                                    <i class="ico ico-md i-archive"></i>
+                                    <span>아카이브</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascipt:void(0);" class="nav-item" tabindex="0" data-target="history">
+                                    <i class="ico ico-md i-history"></i>
+                                    <span>최근기록</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- 🔧 하단 설정/로그인 -->
+                    <div class="nav-bottom">
+                        <!-- 비로그인 상태 -->
+                        <a href="로그인.html" class="login">로그인</a>
+
+                        <!-- 로그인 상태 (주석 처리됨) -->
+                        <!-- <a href="프로필설정.html" class="user">
+                            <div class="user-img"></div>
+                            <h6>홍길동님</h6>
+                        </a> -->
+
+                        <!-- 환경설정 메뉴 -->
+                        <div class="nav-option">
+                            <button type="button" type="button" class="btn-nav-set">
+                                <i class="ico ico-md i-set"></i>
+                            </button>
+                            <ul class="nav-menu">
+                                <li>
+                                    <a href="javascript:void(0);">메뉴얼</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);">테마설정</a>
+                                    <ul class="theme-options">
+                                        <li>
+                                            <div class="radio-group">
+                                                <input type="radio" id="light" name="theme">
+                                                <label for="light">라이트 모드</label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="radio-group">
+                                                <input type="radio" id="dark" name="theme">
+                                                <label for="dark">다크 모드</label>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <!-- 로그아웃 (비로그인 상태이므로 주석 처리됨) -->
+                                <!-- <li>
+                                    <a href="javascript:void(0);">로그아웃</a>
+                                </li> -->
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <!-- ✅ 우측 상세 패널 -->
+                <div class="nav-side">
+                    <div class="nav-side-top">
+                        <!-- 상세패널 닫기 -->
+                        <button type="button" class="btn-sidenav-remove" tabindex="0">
+                            <i class="ico ico-md i-menu-toggle"></i>
+                        </button>
+                        <!-- 아카이브 편집 버튼 -->
+                        <button type="button" class="btn-archive-edit" style="display: none;">
+                            <i class="ico ico-md i-edit"></i>
+                        </button>
+                        <!-- 전체 선택 영역 -->
+                        <div class="check-group">
+                            <input type="checkbox" id="checkAll">
+                            <label for="checkAll"><span>0</span>개 선택됨</label>
+                        </div>
+                        <!-- 편집 모드 버튼들 -->
+                        <div class="archive-edit">
+                            <a href="javascipt:void(0);" class="btn-archive-delete">삭제</a>
+                            <a href="javascipt:void(0);" class="btn-archive-complete">완료</a>
+                        </div>
+                    </div>
+                    <!-- 우측 패널 콘텐츠 -->
+                    <div class="nav-side-content">
+                        <!-- 최근기록 패널 -->
+                        <div class="nav-content" id="history">
+                            <ul class="nav-item-list history-list">
+                                <li>
+                                    <div class="history-item">
+                                        <div class="item-top">
+                                            <p>메뉴경로</p>
+                                            <div class="history-item-option">
+                                                <button type="button" class="btn-op-open" tabindex="0">
+                                                    <img src="img/ico/i-dot.svg" alt="옵션">
+                                                </button>
+                                                <div class="item-option">
+                                                    <p>2024. 01. 01</p>
+                                                    <a href="javascript:void(0);">
+                                                        <img src="img/ico/i-trash.svg" alt="삭제">
+                                                        삭제
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <a href="javascipt:void(0);" class="history-text" tabindex="0">오늘의 날씨는 어떤가요? 오늘의
+                                            날씨는 어떤가요?</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="history-item">
+                                        <div class="item-top">
+                                            <p>메뉴경로</p>
+                                            <div class="history-item-option">
+                                                <button type="button" class="btn-op-open" tabindex="0">
+                                                    <img src="img/ico/i-dot.svg" alt="옵션">
+                                                </button>
+                                                <div class="item-option">
+                                                    <p>2024. 01. 01</p>
+                                                    <a href="javascript:void(0);">
+                                                        <img src="img/ico/i-trash.svg" alt="삭제">
+                                                        삭제
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <a href="javascipt:void(0);" class="history-text" tabindex="0">오늘의 날씨는 어떤가요? 오늘의
+                                            날씨는 어떤가요?</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 아카이브 패널 -->
+                        <div class="nav-content" id="archive">
+                            <ul class="nav-item-list history-list">
+                                <li>
+                                    <div class="check-group">
+                                        <input type="checkbox" id="check01" class="item-check">
+                                        <label for="check01"></label>
+                                    </div>
+                                    <div class="history-item">
+                                        <div class="item-top">
+                                            <p>메뉴경로</p>
+                                            <div class="history-item-option">
+                                                <div class="item-option">
+                                                    <p>2024. 01. 01</p>
+                                                    <a href="javascript:void(0);">
+                                                        <img src="img/ico/i-trash.svg" alt="삭제">
+                                                        삭제
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <a href="javascipt:void(0);" class="history-text" tabindex="0">오늘의 날씨는 어떤가요? 오늘의
+                                            날씨는 어떤가요?</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="check-group">
+                                        <input type="checkbox" id="check02" class="item-check">
+                                        <label for="check02"></label>
+                                    </div>
+                                    <div class="history-item">
+                                        <div class="item-top">
+                                            <p>메뉴경로</p>
+                                            <div class="history-item-option">
+                                                <div class="item-option">
+                                                    <p>2024. 01. 01</p>
+                                                    <a href="javascript:void(0);">
+                                                        <img src="img/ico/i-trash.svg" alt="삭제">
+                                                        삭제
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <a href="javascipt:void(0);" class="history-text" tabindex="0">오늘의 날씨는 어떤가요? 오늘의
+                                            날씨는 어떤가요?</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 메뉴 접기 버튼 -->
+            <button type="button" class="btn-nav-reduction" tabindex="0">
+                <i class="ico ico-md i-menu-toggle"></i>
+            </button>
+        </div>
+
+        <main class="main">
+            <!-- 화면 분기처리 지점 -->
+            <section class="main-home-wrap">
+                <div class="container">
+                    <div class="main-home">
+                        <!-- 도움말 -->
+                        <div class="help-group">
+                            <div class="help-area">
+                                <span tabindex="0">
+                                    도움말
+                                </span>
+                                <div class="help-msg">
+                                    <p>도움말입니다.
+                                        도움말입니다.도움말입니다.도움말입니다.도움말입니다.도움말입니다.도움말입니다.도움말입니다.도움말입니다.도움말입니다.도움말입니다.도움말입니다.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 서비스 기본 설정영역 -->
+                        <div class="title-group">
+                            <h1>서비스타이틀 서비스타이틀</h1>
+                            <h6>서비스 시작 메시지 서비스 시작 메시지</h6>
+                        </div>
+                        <div class="search-group">
+                            <label for="search-input" class="label-hidden">검색</label>
+                            <textarea placeholder="궁금한 것을 무엇이든 물어보세요" id="search-input" tabindex="0"></textarea>
+                            <button type="submit" class="btn-search" tabindex="0">
+                                <i class="ico ico-md i-search"></i>
+                            </button>
+                        </div>
+                        <!-- LNB 메뉴이동 버튼 -->
+                        <div class="main-category">
+                            <div class="row">
+                                <div class="col-6 col-lg-4">
+                                    <a href="javascript:void(0);" class="category-group">
+                                        <div class="category-title">
+                                            <div class="category-img">
+                                                <img src="img/category/category-01.svg" alt="문서요약">
+                                            </div>
+                                            <h5>문서요약</h5>
+                                        </div>
+                                        <p class="category-desc">파일을 첨부하여 요약을 요청해보세요!
+                                            파일을 첨부하여 요약을 요청해보세요!파일을 첨부하여 요약을 요청해보세요!</p>
+                                    </a>
+                                </div>
+                                <div class="col-6 col-lg-4">
+                                    <a href="javascript:void(0);" class="category-group">
+                                        <div class="category-title">
+                                            <div class="category-img">
+                                                <img src="img/category/category-01.svg" alt="문서요약">
+                                            </div>
+                                            <h5>문서요약</h5>
+                                        </div>
+                                        <p class="category-desc">파일을 첨부하여 요약을 요청해보세요!
+                                            파일을 첨부하여 요약을 요청해보세요!파일을 첨부하여 요약을 요청해보세요!</p>
+                                    </a>
+                                </div>
+                                <div class="col-6 col-lg-4">
+                                    <a href="javascript:void(0);" class="category-group">
+                                        <div class="category-title">
+                                            <div class="category-img">
+                                                <img src="img/category/category-01.svg" alt="문서요약">
+                                            </div>
+                                            <h5>문서요약</h5>
+                                        </div>
+                                        <p class="category-desc">파일을 첨부하여 요약을 요청해보세요!
+                                            파일을 첨부하여 요약을 요청해보세요!파일을 첨부하여 요약을 요청해보세요!</p>
+                                    </a>
+                                </div>
+                                <div class="col-6 col-lg-4">
+                                    <a href="javascript:void(0);" class="category-group">
+                                        <div class="category-title">
+                                            <div class="category-img">
+                                                <img src="img/category/category-01.svg" alt="문서요약">
+                                            </div>
+                                            <h5>문서요약</h5>
+                                        </div>
+                                        <p class="category-desc">파일을 첨부하여 요약을 요청해보세요!
+                                            파일을 첨부하여 요약을 요청해보세요!파일을 첨부하여 요약을 요청해보세요!</p>
+                                    </a>
+                                </div>
+                                <div class="col-6 col-lg-4">
+                                    <a href="javascript:void(0);" class="category-group">
+                                        <div class="category-title">
+                                            <div class="category-img">
+                                                <img src="img/category/category-01.svg" alt="문서요약">
+                                            </div>
+                                            <h5>문서요약</h5>
+                                        </div>
+                                        <p class="category-desc">파일을 첨부하여 요약을 요청해보세요!
+                                            파일을 첨부하여 요약을 요청해보세요!파일을 첨부하여 요약을 요청해보세요!</p>
+                                    </a>
+                                </div>
+                                <div class="col-6 col-lg-4">
+                                    <a href="javascript:void(0);" class="category-group">
+                                        <div class="category-title">
+                                            <div class="category-img">
+                                                <img src="img/category/category-01.svg" alt="문서요약">
+                                            </div>
+                                            <h5>문서요약</h5>
+                                        </div>
+                                        <p class="category-desc">파일을 첨부하여 요약을 요청해보세요!
+                                            파일을 첨부하여 요약을 요청해보세요!파일을 첨부하여 요약을 요청해보세요!</p>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- ✅ 비로그인 시, 아카이브 접근 제한 알림 모달 -->
+    <div class="modal-wrap" id="alertModal">
+        <div class="modal-inner">
+            <div class="modal-content modal-sm">
+                <!-- 🔹 모달 헤더 -->
+                <div class="modal-header">
+                    <h5 class="modal-title">아카이브 사용 안내</h5>
+                    <!-- 닫기 버튼 -->
+                    <button type="button" class="btn btn-ico btn-modal-close">
+                        <i class="ico ico-md i-close"></i>
+                    </button>
+                </div>
+                <!-- 🔹 모달 본문 -->
+                <div class="modal-body">
+                    <p>아카이브는 로그인 사용자만 사용할 수 있는 메뉴입니다.<br>로그인을 먼저 진행해주세요.</p>
+                </div>
+                <!-- 🔹 모달 푸터 -->
+                <div class="modal-footer">
+                    <!-- 확인(닫기) 버튼 -->
+                    <button type="button" class="btn btn-primary btn-modal-close">확인</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="lib/jquery.min.js"></script>
+    <script src="js/common.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,149 @@
+/*
+	기본정보
+	- 생성일 : 2025-05-08
+	- 파일명 : ico.css
+	- 포함내용 : 아이콘 등
+*/
+
+.ico {
+    background-size: cover !important;
+    display: inline-block;
+}
+
+.ico-md {
+    height: 20px;
+    width: 20px;
+}
+
+.ico-lg {
+    height: 24px;
+    width: 24px;
+}
+
+.i-menu {
+    background: url(../img/ico/i-menu.svg);
+}
+
+.i-menu-toggle {
+    background: url(../img/ico/i-menu-toggle.svg);
+}
+
+.i-home {
+    background: url(../img/ico/i-home.svg);
+}
+
+.i-document-summary {
+    background: url(../img/ico/i-document-summary.svg);
+}
+
+.i-category {
+    background: url(../img/ico/i-category.svg);
+}
+
+.i-archive {
+    background: url(../img/ico/i-archive.svg);
+}
+
+.i-history {
+    background: url(../img/ico/i-history.svg);
+}
+
+.navbar>li.active .i-home {
+    background: url(../img/ico/i-home-active.svg);
+}
+
+.navbar>li.active .i-document-summary {
+    background: url(../img/ico/i-document-summary-active.svg);
+}
+
+.navbar>li.active .i-category {
+    background: url(../img/ico/i-category-active.svg);
+}
+
+.navbar>li.active .i-archive {
+    background: url(../img/ico/i-archive-active.svg);
+}
+
+.navbar>li.active .i-history {
+    background: url(../img/ico/i-history-active.svg);
+}
+
+.i-set {
+    background: url(../img/ico/i-set.svg);
+}
+
+.i-edit {
+    background: url(../img/ico/i-edit.svg);
+}
+
+.i-search {
+    background: url(../img/ico/i-search.svg);
+}
+
+.i-close {
+    background: url(../img/ico/i-x.svg);
+}
+
+.i-change {
+    background: url(../img/ico/i-change.svg);
+}
+
+.i-down {
+    background: url(../img/ico/i-down.svg);
+}
+
+.i-reset {
+    background: url(../img/ico/i-reset.svg);
+}
+
+.i-good {
+    background: url(../img/ico/i-good.svg);
+}
+
+.i-bad {
+    background: url(../img/ico/i-bad.svg);
+}
+
+.i-copy {
+    background: url(../img/ico/i-copy.svg);
+}
+
+.i-download {
+    background: url(../img/ico/i-download.svg);
+}
+
+.active .i-reset {
+    background: url(../img/ico/i-reset-active.svg);
+}
+
+.active .i-good {
+    background: url(../img/ico/i-good-active.svg);
+}
+
+.active .i-bad {
+    background: url(../img/ico/i-bad-active.svg);
+}
+
+.active .i-copy {
+    background: url(../img/ico/i-copy-active.svg);
+}
+
+.active .i-download {
+    background: url(../img/ico/i-download-active.svg);
+}
+
+.i-link {
+    background: url(../img/ico/i-link.svg);
+}
+
+.i-alarm {
+    background: url(../img/ico/i-alarm.svg);
+}
+
+.i-stop {
+    background: url(../img/ico/i-stop.svg);
+}
+
+.i-file {
+    background: url(../img/ico/i-file.svg);
+}

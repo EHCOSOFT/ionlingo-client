@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+        content="width=device-width,viewport-fit=cover,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>축산물품질평가원</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <div class="wrap">
+        <section class="login-wrap">
+            <div class="container">
+                <img src="img/logo.svg" alt="로고" class="login-logo">
+                <div class="login">
+                    <!-- 서비스 로고 :: 관리기에서 등록한 서비스 로고 -->
+                    <h3>로그인</h3>
+                    <form action="">
+                        <div class="input-wrap">
+                            <div class="input-group error">
+                                <label for="userId">아이디</label>
+                                <input type="text" id="userId">
+                                <small>아이디를 다시 입력해주세요.</small>
+                            </div>
+                            <div class="input-group">
+                                <label for="userPw">비밀번호</label>
+                                <input type="password" id="userPw">
+                            </div>
+                            <button type="submit" class="btn btn-primary">로그인</button>
+                        </div>
+                    </form>
+                    <p>비밀번호가 생각나지 않으신가요?<br>챗봇 시스템 관리자에게 문의해보세요.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="modal-wrap" id="alertModal">
+        <div class="modal-inner">
+            <div class="modal-content modal-sm">
+                <div class="modal-header">
+                    <h5 class="modal-title">아카이브 사용 안내</h5>
+                    <button type="button" class="btn btn-ico btn-modal-close">
+                        <i class="ico ico-md i-close"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>아카이브는 로그인 사용자만 사용할 수 있는 메뉴입니다.<br>로그인을 먼저 진행해주세요.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary btn-modal-close">확인</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="lib/jquery.min.js"></script>
+    <script src="js/common.js"></script>
+</body>
+
+</html>

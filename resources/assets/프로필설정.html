@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+        content="width=device-width,viewport-fit=cover,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>축산물품질평가원</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <div class="wrap">
+        <div class="lnb">
+            <!-- 상단 -->
+            <header class="header">
+                <div class="container">
+                    <button type="button" class="header-menu btn-nav-open" tabindex="0">
+                        <i class="ico ico-lg i-menu"></i>
+                    </button>
+                    <a href="javasciprt:void(0);" class="header-logo" tabindex="0">
+                        <img src="img/mo-logo.svg" alt="로고" class="normal">
+                        <img src="img/logo.svg" alt="로고" class="active">
+                    </a>
+                </div>
+            </header>
+            <div class="nav-wrap">
+                <!-- 좌측 메뉴 -->
+                <nav class="nav">
+                    <div class="nav-top">
+                        <button type="button" class="btn-nav-remove" tabindex="0">
+                            <i class="ico ico-md i-menu-toggle"></i>
+                        </button>
+                    </div>
+                    <div class="nav-list">
+                        <ul class="navbar">
+                            <li>
+                                <a href="javascipt:void(0);" class="nav-item" tabindex="0">
+                                    <i class="ico ico-md i-home"></i>
+                                    <span>홈</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascipt:void(0);" class="nav-item" tabindex="0">
+                                    <i class="ico ico-md i-document-summary"></i>
+                                    <span>문서요약</span>
+                                </a>
+                            </li>
+                            <li class="nav-sub-item">
+                                <a href="javascipt:void(0);" class="nav-item" tabindex="0">
+                                    <i class="ico ico-md i-category"></i>
+                                    <span>카테고리1</span>
+                                </a>
+                                <ul class="nav-item-list">
+                                    <li>
+                                        <a href="javascipt:void(0);" tabindex="0">
+                                            <span>지식A</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascipt:void(0);" tabindex="0">
+                                            <span>지식B</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascipt:void(0);" class="nav-item" tabindex="0">
+                                    <i class="ico ico-md i-category"></i>
+                                    <span>카테고리1</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascipt:void(0);" class="nav-item" tabindex="0">
+                                    <i class="ico ico-md i-category"></i>
+                                    <span>카테고리1</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="navbar">
+                            <li>
+                                <a href="javascipt:void(0);" class="nav-item" tabindex="0" data-target="archive">
+                                    <i class="ico ico-md i-archive"></i>
+                                    <span>아카이브</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascipt:void(0);" class="nav-item" tabindex="0" data-target="history">
+                                    <i class="ico ico-md i-history"></i>
+                                    <span>최근기록</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="nav-bottom">
+                        <a href="프로필설정.html" class="user">
+                            <div class="user-img"></div>
+                            <h6>홍길동님</h6>
+                        </a>
+                        <!-- 환경설정 -->
+                        <div class="nav-option">
+                            <button type="button" type="button" class="btn-nav-set">
+                                <i class="ico ico-md i-set"></i>
+                            </button>
+                            <ul class="nav-menu">
+                                <li>
+                                    <a href="javascript:void(0);">메뉴얼</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);">테마설정</a>
+                                    <!-- 테마 설정 -->
+                                    <ul class="theme-options">
+                                        <li>
+                                            <div class="radio-group">
+                                                <input type="radio" id="light" name="theme">
+                                                <label for="light">라이트 모드</label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="radio-group">
+                                                <input type="radio" id="dark" name="theme">
+                                                <label for="dark">다크 모드</label>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);">로그아웃</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <div class="nav-side">
+                    <div class="nav-side-top">
+                        <button type="button" class="btn-sidenav-remove" tabindex="0">
+                            <i class="ico ico-md i-menu-toggle"></i>
+                        </button>
+                        <button type="button" class="btn-archive-edit" style="display: none;">
+                            <i class="ico ico-md i-edit"></i>
+                        </button>
+                        <div class="check-group">
+                            <input type="checkbox" id="checkAll">
+                            <label for="checkAll"><span>0</span>개 선택됨</label>
+                        </div>
+                        <div class="archive-edit">
+                            <a href="javascipt:void(0);" class="btn-archive-delete">삭제</a>
+                            <a href="javascipt:void(0);" class="btn-archive-complete">완료</a>
+                        </div>
+                    </div>
+                    <div class="nav-side-content">
+                        <!-- 최근기록 -->
+                        <div class="nav-content" id="history">
+                            <ul class="nav-item-list history-list">
+                                <li>
+                                    <div class="history-item">
+                                        <div class="item-top">
+                                            <p>메뉴경로</p>
+                                            <div class="history-item-option">
+                                                <button type="button" class="btn-op-open" tabindex="0">
+                                                    <img src="img/ico/i-dot.svg" alt="옵션">
+                                                </button>
+                                                <div class="item-option">
+                                                    <p>2024. 01. 01</p>
+                                                    <a href="javascript:void(0);">
+                                                        <img src="img/ico/i-trash.svg" alt="삭제">
+                                                        삭제
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <a href="javascipt:void(0);" class="history-text" tabindex="0">오늘의 날씨는 어떤가요? 오늘의
+                                            날씨는 어떤가요?</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="history-item">
+                                        <div class="item-top">
+                                            <p>메뉴경로</p>
+                                            <div class="history-item-option">
+                                                <button type="button" class="btn-op-open" tabindex="0">
+                                                    <img src="img/ico/i-dot.svg" alt="옵션">
+                                                </button>
+                                                <div class="item-option">
+                                                    <p>2024. 01. 01</p>
+                                                    <a href="javascript:void(0);">
+                                                        <img src="img/ico/i-trash.svg" alt="삭제">
+                                                        삭제
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <a href="javascipt:void(0);" class="history-text" tabindex="0">오늘의 날씨는 어떤가요? 오늘의
+                                            날씨는 어떤가요?</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 아카이브 -->
+                        <div class="nav-content" id="archive">
+                            <ul class="nav-item-list history-list">
+                                <li>
+                                    <div class="check-group">
+                                        <input type="checkbox" id="check01" class="item-check">
+                                        <label for="check01"></label>
+                                    </div>
+                                    <div class="history-item">
+                                        <div class="item-top">
+                                            <p>메뉴경로</p>
+                                            <div class="history-item-option">
+                                                <div class="item-option">
+                                                    <p>2024. 01. 01</p>
+                                                    <a href="javascript:void(0);">
+                                                        <img src="img/ico/i-trash.svg" alt="삭제">
+                                                        삭제
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <a href="javascipt:void(0);" class="history-text" tabindex="0">오늘의 날씨는 어떤가요? 오늘의
+                                            날씨는 어떤가요?</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="check-group">
+                                        <input type="checkbox" id="check02" class="item-check">
+                                        <label for="check02"></label>
+                                    </div>
+                                    <div class="history-item">
+                                        <div class="item-top">
+                                            <p>메뉴경로</p>
+                                            <div class="history-item-option">
+                                                <div class="item-option">
+                                                    <p>2024. 01. 01</p>
+                                                    <a href="javascript:void(0);">
+                                                        <img src="img/ico/i-trash.svg" alt="삭제">
+                                                        삭제
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <a href="javascipt:void(0);" class="history-text" tabindex="0">오늘의 날씨는 어떤가요? 오늘의
+                                            날씨는 어떤가요?</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="btn-nav-reduction" tabindex="0">
+                <i class="ico ico-md i-menu-toggle"></i>
+            </button>
+        </div>
+
+        <main class="main">
+            <!-- 프로필 설정 -->
+            <section class="section">
+                <div class="container">
+                    <!-- 기본 계정 정보 -->
+                    <form action="">
+                        <div class="input-wrap">
+                            <div class="profile-group">
+                                <div class="profile-group-child">
+                                    <label for="fileUpload"></label>
+                                    <input type="file" id="fileUpload">
+                                    <button type="button" class="btn-file-upload">
+                                        <i class="ico i-change"></i>
+                                    </button>
+                                </div>
+                                <p>프로필 사진은 10MB 이하의 JPGE, PNG로<br>업로드 부탁드립니다.</p>
+                            </div>
+                            <div class="input-group">
+                                <label for="userName">이름</label>
+                                <input type="text" id="userName" value="김선우" disabled>
+                            </div>
+                            <div class="input-group">
+                                <label for="userAccount">계정</label>
+                                <input type="text" id="userAccount" value="abc@gmail.com" disabled>
+                            </div>
+                            <div class="input-group">
+                                <label for="userDepartment">부서명</label>
+                                <input type="text" id="userDepartment" value="전산팀" disabled>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </main>
+    </div>
+
+
+    <!-- 프로필 사진 파일형식 안내 모달 -->
+    <div class="modal-wrap" id="alertModal01">
+        <div class="modal-inner">
+            <div class="modal-content modal-sm">
+                <div class="modal-header">
+                    <h5 class="modal-title">프로필 사진 파일형식 안내</h5>
+                    <button type="button" class="btn btn-ico btn-modal-close">
+                        <i class="ico ico-md i-close"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>등록하신 파일 형식이 잘못 되었습니다.<br>파일 형식은 JPGE, PNG만 지원합니다.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary btn-modal-close">확인</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 프로필 사진 파일용량 안내 모달 -->
+    <div class="modal-wrap" id="alertModal02">
+        <div class="modal-inner">
+            <div class="modal-content modal-sm">
+                <div class="modal-header">
+                    <h5 class="modal-title">프로필 사진 파일용량 안내</h5>
+                    <button type="button" class="btn btn-ico btn-modal-close">
+                        <i class="ico ico-md i-close"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>등록하신 파일의 용량이 10MB를 초과하였습니다.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary btn-modal-close">확인</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="lib/jquery.min.js"></script>
+    <script src="js/common.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,411 @@
+@charset "utf-8";
+
+/*
+	기본정보
+	- 생성일 : 2025-05-08
+	- 파일명 : dark.css
+	- 포함내용 : 다크모드
+*/
+
+[data-bs-theme=dark] {
+    --body-bg: #212121;
+    --lnb-bg: #171717;
+    --lnb-hover: #2F2F2F;
+    --nav-bg: #171717;
+    --border: #212121;
+    --gray-950: #0D0D0D;
+    --gray-900: #171717;
+    --gray-800: #212121;
+    --gray-750: #2F2F2F;
+    --gray-700: #424242;
+    --gray-600: #676767;
+    --gray-500: #9B9B9B;
+    --gray-400: #B4B4B4;
+    --gray-300: #CDCDCD;
+    --gray-200: #E3E3E3;
+    --gray-100: #ECECEC;
+    --gray-50: #F9F9F9;
+    --color-primary: #F1A846;
+    --box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.50);
+}
+
+[data-bs-theme=dark] input:disabled {
+    background: var(--gray-750) !important;
+    color: var(--gray-400) !important;
+}
+
+/* **************************************** *
+ * header 
+ * **************************************** */
+[data-bs-theme=dark] .btn-nav-remove,
+[data-bs-theme=dark] .btn-nav-reduction {
+    background: var(--gray-750);
+}
+
+[data-bs-theme=dark] .i-menu-toggle {
+    background: url(../img/ico/i-menu-toggle-dark.svg);
+}
+
+[data-bs-theme=dark] .navbar>li>a {
+    color: var(--gray-400);
+}
+
+[data-bs-theme=dark] .navbar>li.active>a {
+    color: var(--color-primary);
+}
+
+[data-bs-theme=dark] .i-menu {
+    background: url(../img/ico/i-menu-dark.svg);
+}
+
+[data-bs-theme=dark] .i-home {
+    background: url(../img/ico/i-home-dark.svg);
+}
+
+[data-bs-theme=dark] .i-document-summary {
+    background: url(../img/ico/i-document-summary-dark.svg);
+}
+
+[data-bs-theme=dark] .i-category {
+    background: url(../img/ico/i-category-dark.svg);
+}
+
+[data-bs-theme=dark] .i-archive {
+    background: url(../img/ico/i-archive-dark.svg);
+}
+
+[data-bs-theme=dark] .i-history {
+    background: url(../img/ico/i-history-dark.svg);
+}
+
+[data-bs-theme=dark] .navbar .nav-sub-item>a::after {
+    background: url(../img/ico/i-down-dark.svg);
+}
+
+[data-bs-theme=dark] .navbar .nav-item-list>li.active>a {
+    background: none;
+}
+
+[data-bs-theme=dark] .nav-menu>li>a {
+    color: var(--gray-400);
+}
+
+[data-bs-theme=dark] .user h6,
+[data-bs-theme=dark] .nav-bottom .login {
+    color: var(--gray-400);
+}
+
+[data-bs-theme=dark] .nav-menu>li>a:active,
+[data-bs-theme=dark] .nav-menu>li>a:hover {
+    background: var(--gray-800);
+}
+
+[data-bs-theme=dark] .radio-group label,
+[data-bs-theme=dark] .check-group label {
+    color: var(--gray-400);
+}
+
+[data-bs-theme=dark] .nav-side {
+    background: var(--body-bg);
+}
+
+[data-bs-theme=dark] .archive-edit a:last-child {
+    color: var(--gray-400);
+}
+
+[data-bs-theme=dark] .i-edit {
+    background: url(../img/ico/i-edit-dark.svg);
+}
+
+[data-bs-theme=dark] .history-list>li:hover,
+[data-bs-theme=dark] .history-list>li:focus {
+    background: var(--gray-750);
+}
+
+[data-bs-theme=dark] .history-item .item-top p {
+    color: var(--gray-400);
+}
+
+[data-bs-theme=dark] .history-item .history-text {
+    color: var(--gray-300);
+}
+
+[data-bs-theme=dark] .lnb.active .navbar>li>a span,
+[data-bs-theme=dark] .lnb.active .nav-item-list>li>a span {
+    background: var(--gray-700);
+    color: var(--gray-300);
+}
+
+/* **************************************** *
+ * button 
+ * **************************************** */
+[data-bs-theme=dark] .btn-outline-primary {
+    background: var(--gray-800);
+}
+
+/* **************************************** *
+ * accordion 
+ * **************************************** */
+[data-bs-theme=dark] .accordion {
+    background: var(--gray-750);
+}
+
+[data-bs-theme=dark] .accordion-item {
+    background: none;
+}
+
+[data-bs-theme=dark] .accordion-header {
+    color: var(--gray-300);
+}
+
+[data-bs-theme=dark] .i-down {
+    background: url(../img/ico/i-down-dark.svg);
+}
+
+[data-bs-theme=dark] .accordion-content ul li {
+    color: var(--gray-400);
+}
+
+[data-bs-theme=dark] .accordion-content ul li:last-child {
+    color: var(--color-primary);
+}
+
+
+
+/* **************************************** *
+ * dropdown 
+ * **************************************** */
+[data-bs-theme=dark] .dropbtn {
+    background: none;
+}
+
+[data-bs-theme=dark] .dropdown-content a {
+    color: var(--gray-400);
+}
+
+[data-bs-theme=dark] .dropdown-content a:hover {
+    background: var(--gray-800);
+}
+
+/* 입력폼 */
+[data-bs-theme=dark] .input-group label {
+    color: var(--gray-200);
+}
+
+[data-bs-theme=dark] .input-group input {
+    background: var(--gray-750);
+    color: var(--gray-200);
+}
+
+/* 모달 */
+[data-bs-theme=dark] .i-close {
+    background: url(../img/ico/i-x-dark.svg);
+}
+
+/* 로그인 */
+[data-bs-theme=dark] .login {
+    background: var(--gray-900);
+}
+
+[data-bs-theme=dark] .login h3 {
+    color: var(--gray-200);
+}
+
+/* 프로필 설정 */
+[data-bs-theme=dark] .btn-file-upload {
+    background: var(--gray-700);
+}
+
+[data-bs-theme=dark] .i-change {
+    background: url(../img/ico/i-change-dark.svg);
+}
+
+[data-bs-theme=dark] .profile-group p {
+    color: var(--gray-200);
+}
+
+/* 진입화면 */
+[data-bs-theme=dark] .main-home h1 {
+    color: var(--gray-300);
+}
+
+[data-bs-theme=dark] .search-group textarea {
+    background: var(--gray-750);
+    color: var(--gray-400);
+}
+
+[data-bs-theme=dark] .category-group {
+    background: var(--gray-750);
+}
+
+[data-bs-theme=dark] .category-group .category-title h5 {
+    color: var(--gray-400);
+}
+
+[data-bs-theme=dark] .category-group p {
+    color: var(--gray-500);
+}
+
+[data-bs-theme=dark] .help-group span {
+    background: var(--gray-750);
+    color: var(--gray-400);
+}
+
+[data-bs-theme=dark] .help-msg {
+    background: var(--gray-750);
+}
+
+[data-bs-theme=dark] .help-msg p {
+    color: var(--gray-400);
+}
+
+/* 대화진행 */
+[data-bs-theme=dark] .chat-start p {
+    background: var(--gray-750);
+    color: var(--gray-400);
+}
+
+[data-bs-theme=dark] .main-chat-wrap {
+    background: none;
+}
+
+[data-bs-theme=dark] .chat-top {
+    background: var(--gray-750);
+}
+
+[data-bs-theme=dark] .chat-top p {
+    color: var(--gray-200);
+}
+
+[data-bs-theme=dark] .chat-item h4 {
+    color: var(--gray-300);
+}
+
+[data-bs-theme=dark] .chat-text {
+    background: var(--gray-750);
+}
+
+[data-bs-theme=dark] .chat-text>* {
+    color: var(--gray-400);
+}
+
+[data-bs-theme=dark] .chat-bottom {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.00) 0%, var(--body-bg) 50%);
+}
+
+[data-bs-theme=dark] .chat-bottom p {
+    color: var(--gray-400);
+}
+
+/* 대화진행 */
+[data-bs-theme=dark] .chat-img h6 {
+    color: var(--gray-300);
+}
+
+[data-bs-theme=dark] .chat-img a {
+    background: var(--gray-700);
+    color: var(--gray-300);
+}
+
+[data-bs-theme=dark] .i-reset {
+    background: url(../img/ico/i-reset-dark.svg);
+}
+
+[data-bs-theme=dark] .i-good {
+    background: url(../img/ico/i-good-dark.svg);
+}
+
+[data-bs-theme=dark] .i-bad {
+    background: url(../img/ico/i-bad-dark.svg);
+}
+
+[data-bs-theme=dark] .i-copy {
+    background: url(../img/ico/i-copy-dark.svg);
+}
+
+[data-bs-theme=dark] .i-download {
+    background: url(../img/ico/i-download-dark.svg);
+}
+
+[data-bs-theme=dark] .chat-reaction .btn-group button.active {
+    background: var(--gray-900);
+}
+
+[data-bs-theme=dark] .chat-reaction .btn-group button span {
+    background: var(--gray-900);
+    color: var(--gray-400);
+}
+
+[data-bs-theme=dark] .chat-swiper-wrap {
+    background: var(--gray-750);
+}
+
+[data-bs-theme=dark] .chat-swiper-wrap h6 {
+    color: var(--gray-300);
+}
+
+[data-bs-theme=dark] .chat-swiper .swiper-slide {
+    background: var(--gray-700);
+}
+
+[data-bs-theme=dark] .chat-swiper .swiper-slide h5 {
+    color: var(--gray-200);
+}
+
+[data-bs-theme=dark] .chat-swiper .swiper-slide h6 {
+    color: var(--gray-300);
+}
+
+[data-bs-theme=dark] .chat-swiper-wrap .swiper-button-prev,
+[data-bs-theme=dark] .chat-swiper-wrap .swiper-button-next {
+    background: var(--gray-750);
+    box-shadow: var(--box-shadow);
+    border: 0;
+}
+
+[data-bs-theme=dark] .chat-swiper-wrap .swiper-button-prev::after,
+[data-bs-theme=dark] .chat-swiper-wrap .swiper-button-next::after {
+    color: var(--gray-300);
+}
+
+[data-bs-theme=dark] .i-link {
+    background: url(../img/ico/i-link-dark.svg);
+}
+
+[data-bs-theme=dark] .i-alarm {
+    background: url(../img/ico/i-alarm-dark.svg);
+}
+
+[data-bs-theme=dark] .chat-suggestion h6 {
+    color: var(--gray-300);
+}
+
+[data-bs-theme=dark] .chat-suggestion .question-list li a {
+    color: var(--gray-400);
+}
+
+/* 문서요약 */
+[data-bs-theme=dark] .file-upload-group {
+    background: var(--gray-750);
+    color: var(--gray-400);
+}
+
+[data-bs-theme=dark] .i-file {
+    background: url(../img/ico/i-file-dark.svg);
+}
+
+[data-bs-theme=dark] .file-upload-group textarea {
+    color: var(--gray-400);
+}
+
+[data-bs-theme=dark] .file-upload-group-info {
+    background: var(--gray-700);
+}
+
+[data-bs-theme=dark] .file-upload-group-info h5 {
+    color: var(--gray-300);
+}
+
+[data-bs-theme=dark] .file-upload-group-info h6 {
+    color: var(--gray-400);
+}
