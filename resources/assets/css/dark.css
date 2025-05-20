@@ -109,6 +109,11 @@
     background: var(--body-bg);
 }
 
+[data-bs-theme=dark] .nav-side-top {
+    background: var(--body-bg);
+}
+
+[data-bs-theme=dark] .history-edit a:last-child,
 [data-bs-theme=dark] .archive-edit a:last-child {
     color: var(--gray-400);
 }
@@ -118,15 +123,18 @@
 }
 
 [data-bs-theme=dark] .history-list>li:hover,
-[data-bs-theme=dark] .history-list>li:focus {
+[data-bs-theme=dark] .history-list>li:focus,
+[data-bs-theme=dark] .archive-list>li:hover,
+[data-bs-theme=dark] .archive-list>li:focus {
     background: var(--gray-750);
 }
 
-[data-bs-theme=dark] .history-item .item-top p {
+[data-bs-theme=dark] .history-group h6 {
     color: var(--gray-400);
 }
 
-[data-bs-theme=dark] .history-item .history-text {
+[data-bs-theme=dark] .history-text,
+[data-bs-theme=dark] .archive-item .archive-text {
     color: var(--gray-300);
 }
 
@@ -142,6 +150,7 @@
 [data-bs-theme=dark] .btn-outline-primary {
     background: var(--gray-800);
 }
+
 
 /* **************************************** *
  * accordion 
@@ -185,6 +194,20 @@
 
 [data-bs-theme=dark] .dropdown-content a:hover {
     background: var(--gray-800);
+}
+
+/* **************************************** *
+ * tabs
+ * **************************************** */
+
+[data-bs-theme=dark] .tabs li {
+    background: var(--gray-750);
+    color: var(--gray-400);
+}
+
+[data-bs-theme=dark] .tabs li.active {
+    background: var(--gray-600);
+    color: var(--gray-200);
 }
 
 /* 입력폼 */

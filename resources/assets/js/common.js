@@ -1,7 +1,7 @@
 
 $(document).ready(function () {
     // ==============================
-    // [전역]
+    // [전역 초기화]
     // ==============================
 
     let windowWidth = $(window).width();
@@ -14,15 +14,44 @@ $(document).ready(function () {
         // 💻 **PC 이벤트 (클릭)**
         $(".btn-nav-open").click(openNav);
         $(".btn-nav-remove").click(closeNav);
-        $(".btn-sidenav-remove").click(closeSideNav);
+        // $(".btn-sidenav-remove").click(closeSideNav);
     }
 
+    // ✅ 닫기 버튼 (사이드 패널)
+    $(document).on("click", ".btn-sidenav-remove", function () {
+        closeSideNav();
+    });
+
+    // 📍 PC로 전환 시, 모바일 스타일/상태 초기화 처리
+    $(window).on("resize", function () {
+        const windowWidth = $(window).width();
+
+        if (windowWidth > 992) {
+            // ✅ 모바일에서 설정된 인라인 스타일 및 클래스 제거
+            $(".nav").removeAttr("style").removeClass("animated");
+            $(".nav-wrap").removeAttr("style").show();
+            $(".btn-nav-remove").removeAttr("style").hide();
+            $("body").css("overflow", "auto");
+            $(".nav-side").removeClass("show");
+            $(".nav-content").removeClass("active").hide();
+
+            // ✅ 모바일 메뉴 상태 초기화
+            $(".navbar > li, .nav-item-list, .lnb, .nav-sub-item").removeClass("active");
+        }
+    });
+
+
+    // ==============================
+    // [함수 실행]
+    // ==============================
     initNavMenu(); // 네비게이션 옵션 메뉴 토글 기능
     initThemeToggle(); // 테마 토글 기능 초기화
     initModalSystem(); // 모달 초기 진입 시 한번 실행
     initDropdown(); // 기본 드롭다운 초기화
-    initFileUpload(".file-upload-group", "#documentFileUpload");
-
+    initFileUpload(".file-upload-group", "#documentFileUpload");// 파일 업로드 초기화
+    initTabControl(".tabs li", ".tab-content"); //
+    initHistoryPanel(); // 최근기록 패널 초기화
+    initArchivePanel(); // 아카이브 패널 초기화
 
     // ==============================
     // [함수]
@@ -68,7 +97,7 @@ $(document).ready(function () {
             $(".nav-side").addClass("show");
             $(".nav-content").removeClass("active").hide();
             $("#" + section).addClass("active").show();
-            checkarchiveActive();
+            // checkarchiveActive();
         } else {
             closeSideNav();
         }
@@ -80,12 +109,48 @@ $(document).ready(function () {
         $(".nav-content").removeClass("active").hide();
 
         // 내부 컨텐츠
-        $(".btn-archive-edit").removeClass("show");
-        $(".archive-edit").removeClass("show");
-        $(".nav-side-top .check-group").removeClass("show");
-        $(".history-list > li > .check-group").removeClass("show");
+        // $(".btn-archive-edit").removeClass("show");
+        // $(".archive-edit").removeClass("show");
+        // $(".nav-side-top .check-group").removeClass("show");
+        // $(".history-list > li > .check-group").removeClass("show");
     }
 
+    /* -- 탭 기능 -- */
+    function initTabControl(tabSelector, contentSelector) {
+        const $tabs = $(tabSelector);
+        const $contents = $(contentSelector);
+
+        $tabs.on("click", function (e) {
+            // ✅ 편집 중이면 탭 이동 막기
+            if ($(".history-edit").hasClass("show") || $(".history-check-group").hasClass("show")) {
+                alert("편집 모드에서는 탭을 이동할 수 없습니다.");
+                return false; // 클릭 이벤트 중단
+            }
+
+            e.preventDefault();
+
+            const $clicked = $(this);
+            const target = $clicked.data("target");
+
+            // 탭 버튼 active 처리
+            $tabs.removeClass("active");
+            $clicked.addClass("active");
+
+            // 콘텐츠 show/hide 처리
+            $contents.removeClass("active show").hide();
+            $(target).addClass("active show").fadeIn(150);
+        });
+
+        // 초기 상태 설정
+        if ($tabs.filter(".active").length === 0) {
+            $tabs.first().addClass("active");
+            const firstTarget = $tabs.first().data("target");
+            $contents.removeClass("active show").hide();
+            $(firstTarget).addClass("active show").show();
+        } else {
+            $contents.not(".active").hide();
+        }
+    }
 
     // 개발 중 수동 조절용 로그인 상태 변수
     window.isLoggedIn = true; // ← 여기서 true 또는 false로 수동 조정
@@ -95,6 +160,10 @@ $(document).ready(function () {
         let target = $(this).data("target");
 
         const isLoggedIn = !!window.isLoggedIn;
+
+        // ✅ 패널 전환 전 편집모드 초기화
+        exitHistoryEditMode(); // 편집 모드 종료 함수를 따로 정의해주세요.
+        exitArchiveEditMode(); // 편집 모드 종료 함수를 따로 정의해주세요.
 
         if (target === "archive") {
             if (isLoggedIn) {
@@ -108,64 +177,6 @@ $(document).ready(function () {
         }
     });
 
-    /* -- 아카이브 영역 활성 여부에 따라 편집 버튼 표시/숨김 -- */
-    function checkarchiveActive() {
-        if ($('#archive').hasClass('active')) {
-            $('.btn-archive-edit').show();
-        } else {
-            $('.btn-archive-edit').hide();
-            $(".archive-edit").removeClass("show");
-            $(".nav-side-top .check-group").removeClass("show");
-            $(".history-list > li > .check-group").removeClass("show");
-        }
-    }
-
-    /* -- nav-content에 class 변경 발생 시 아카이브 상태 체크 -- */
-    $(".nav-content").on('classChange', function () {
-        checkarchiveActive();
-    });
-
-    /* -- [편집하기] 버튼 클릭 시 편집 모드 활성화 -- */
-    $(".btn-archive-edit").click(function () {
-        $(this).hide(); // 본인 숨김
-        $(".btn-sidenav-remove").hide(); // 닫기 버튼 숨김
-        $(".archive-edit").addClass("show"); // 삭제/완료 버튼 보이기
-        $(".nav-side-top .check-group").addClass("show"); // 전체 선택 영역 보이기
-        $(".history-list > li > .check-group").addClass("show"); // 각 항목 체크박스 보이기
-    });
-
-    /* -- [편집 완료] 버튼 클릭 시 편집 모드 종료 -- */
-    $(".btn-archive-complete").click(function () {
-        $(".btn-sidenav-remove").addClass("show").show(); // 닫기 버튼 다시 표시
-        $(".btn-archive-edit").addClass("show").show(); // 편집 버튼 다시 표시
-        $(".archive-edit").removeClass("show"); // 편집 모드 버튼 숨김
-        $(".nav-side-top .check-group").removeClass("show"); // 전체 선택 숨김
-        $(".history-list > li > .check-group").removeClass("show"); // 체크박스 숨김
-    });
-
-    /* -- 선택된 항목 수를 상단에 표시 -- */
-    function updateSelectedCount() {
-        let count = $(".item-check:checked").length;
-        $(".nav-side-top .check-group label span").text(count); // 선택 수 표시
-    }
-
-
-    /* -- [전체 선택] 체크박스 변경 시 모든 항목 선택/해제 -- */
-    $("#checkAll").change(function () {
-        let isChecked = $(this).prop("checked");
-        $(".item-check").prop("checked", isChecked); // 전체 선택 반영
-        updateSelectedCount(); // 선택 수 갱신
-    });
-
-    /* -- 개별 체크박스 클릭 시 선택 수 갱신 -- */
-    $(".item-check").change(updateSelectedCount);
-
-    /* -- [삭제] 버튼 클릭 시 체크된 항목 삭제 -- */
-    $(".btn-archive-delete").click(function () {
-        $(".item-check:checked").closest("li").remove(); // 체크된 항목 삭제
-        updateSelectedCount(); // 선택 수 다시 계산 
-    });
-
     // 사이드바 접기/펼치기 버튼
     $(".btn-nav-reduction").click(function () {
         if ($(".lnb").hasClass("active")) {
@@ -176,20 +187,243 @@ $(document).ready(function () {
         }
     });
 
-    function openOptionMenu(event) {
-        event.stopPropagation(); // 이벤트 버블링 방지
-        $(".item-option").removeClass("active"); // 다른 열린 옵션 닫기
-        $(this).siblings(".item-option").addClass("active"); // 현재 클릭한 옵션 열기
-    }
 
-    function closeOptionMenu(event) {
-        if (!$(event.target).closest(".history-item-option").length) {
-            $(".item-option").removeClass("active"); // 영역 밖 클릭 시 닫기
+    /* -- 최근기록 패널 내부 이벤트 -- */
+    function initHistoryPanel() {
+        // ✅ 주요 요소 캐싱
+        const $panel = $("#history"); // 전체 패널
+        const $checkAll = $("#historyCheckAll"); // 전체 선택 체크박스
+        const $editBtn = $(".btn-history-edit"); // 편집 버튼
+        const $removeBtn = $(".btn-sidenav-remove"); // 닫기 버튼
+        const $completeBtn = $(".btn-history-complete"); // 완료 버튼
+        const $deleteBtn = $(".btn-history-delete"); // 삭제 버튼
+        const $checkGroup = $(".history-check-group"); // 상단 체크그룹 영역
+        const $editBox = $(".history-edit"); // 편집용 버튼 영역
+
+        // ✅ [1] 편집 버튼 클릭 시: 체크박스 및 편집 UI 표시
+        $editBtn.on("click", function () {
+            $(this).removeClass("show"); // 편집 버튼 숨김
+            $removeBtn.removeClass("show"); // 닫기 버튼 숨김
+            $checkGroup.addClass("show"); // 전체 선택 표시
+            $editBox.addClass("show"); // 삭제/완료 버튼 표시
+
+            // 현재 활성 탭의 리스트 항목 중 체크박스가 없는 경우 삽입
+            $panel.find(".tab-content.active .history-list li").each(function (i) {
+                if (!$(this).find(".check-group").length) {
+                    const idx = (i + 1).toString().padStart(2, "0"); // check01, check02 ...
+                    const checkbox = `
+                    <div class="check-group">
+                        <input type="checkbox" id="check${idx}" class="history-item-check">
+                        <label for="check${idx}"></label>
+                    </div>
+                `;
+                    $(this).prepend(checkbox); // 항목에 체크박스 삽입
+                }
+            });
+
+            updateCount(); // 선택 수 갱신
+        });
+
+        // ✅ [2] 전체 선택 체크박스 변경 시: 현재 탭 내 항목 전체 체크/해제
+        $checkAll.on("change", function () {
+            const isChecked = $(this).is(":checked");
+            $panel.find(".tab-content.active .history-item-check").prop("checked", isChecked); // 전체 반영
+            updateCount(); // 선택 수 갱신
+        });
+
+        // ✅ [3] 개별 체크박스 변경 시: 수량 카운트만 갱신
+        $panel.on("change", ".history-item-check", function () {
+            updateCount();
+        });
+
+        // ✅ [4] 삭제 버튼 클릭 시: 체크된 항목 제거
+        $deleteBtn.on("click", function () {
+            $panel.find(".tab-content.active .history-item-check:checked").closest("li").remove(); // 항목 삭제
+            updateCount(); // 삭제 후 수량 갱신
+        });
+
+        // ✅ [5] 완료 버튼 클릭 시: 편집 모드 종료 및 UI 초기화
+        $completeBtn.on("click", function () {
+            $editBtn.addClass("show"); // 편집 버튼 다시 표시
+            $removeBtn.addClass("show"); // 닫기 버튼 다시 표시
+            $checkGroup.removeClass("show"); // 체크박스 영역 숨김
+            $editBox.removeClass("show"); // 편집 버튼 숨김
+
+            $checkAll.prop("checked", false); // 전체선택 해제
+            $panel.find(".tab-content.active .history-item-check").prop("checked", false); // 개별도 해제
+
+            // ✅ 체크박스 DOM 자체 제거 (편집 전 상태로 복귀)
+            $panel.find(".tab-content.active .history-item-check").each(function () {
+                const $checkGroup = $(this).closest(".check-group");
+                $checkGroup.remove(); // li 안에서 체크박스 그룹 제거
+            });
+
+            updateCount(); // 선택 수 초기화
+        });
+
+        // ✅ [6] 선택된 항목 수를 상단에 표시하는 함수
+        function updateCount() {
+            const count = $panel.find(".tab-content.active .history-item-check:checked").length;
+            $(".history-check-group label span").text(count); // 예: "3개 선택됨"
         }
     }
 
-    $(".btn-op-open").click(openOptionMenu);
-    $(document).click(closeOptionMenu);
+    /* -- 최근기록 패널 내부 에디터 기능 초기화 -- */
+    function exitHistoryEditMode() {
+        const $panel = $("#history");
+        const $editBtn = $(".btn-history-edit");
+        const $removeBtn = $(".btn-sidenav-remove");
+        const $checkGroup = $(".history-check-group");
+        const $editBox = $(".history-edit");
+        const $checkAll = $("#historyCheckAll");
+
+        // UI 초기화
+        $editBtn.addClass("show");
+        $removeBtn.addClass("show");
+        $checkGroup.removeClass("show");
+        $editBox.removeClass("show");
+
+        // 체크 상태 초기화
+        $checkAll.prop("checked", false);
+        $panel.find(".tab-content .history-item-check").prop("checked", false);
+
+        // 체크박스 DOM 제거
+        $panel.find(".tab-content .history-item-check").each(function () {
+            const $checkGroup = $(this).closest(".check-group");
+            $checkGroup.remove();
+        });
+
+        // 선택 수 초기화
+        $(".history-check-group label span").text("0");
+    }
+
+
+    /* -- 아카이브 패널 내부 이벤트 -- */
+    function initArchivePanel() {
+        // ✅ 아카이브 영역 내 주요 요소 캐싱
+        const $panel = $("#archive");
+        const $checkAll = $("#archiveCheckAll"); // 전체 선택 체크박스
+        const $editBtn = $panel.find(".btn-archive-edit"); // 편집 버튼
+        const $removeBtn = $panel.find(".btn-sidenav-remove"); // 닫기 버튼
+        const $completeBtn = $panel.find(".btn-archive-complete"); // 완료 버튼
+        const $deleteBtn = $panel.find(".btn-archive-delete"); // 삭제 버튼
+        const $checkGroup = $panel.find(".archive-check-group"); // 상단 체크 영역
+        const $editBox = $panel.find(".archive-edit"); // 편집용 버튼 영역
+        const $list = $panel.find(".archive-list"); // 항목 리스트
+
+        // ✅ [1] 편집 버튼 클릭 시: 체크박스 및 편집 UI 표시
+        $editBtn.on("click", function () {
+            $(this).removeClass("show"); // 편집 버튼 숨김
+            $removeBtn.removeClass("show"); // 닫기 버튼 숨김
+            $checkGroup.addClass("show"); // 전체 선택 영역 표시
+            $editBox.addClass("show"); // 삭제/완료 버튼 표시
+
+            // 항목마다 체크박스가 없다면 삽입
+            $list.find("li").each(function (i) {
+                if (!$(this).find(".check-group").length) {
+                    const idx = (i + 1).toString().padStart(2, "0"); // check01, check02 등 생성
+                    const checkbox = `
+                    <div class="check-group">
+                        <input type="checkbox" id="archiveCheck${idx}" class="archive-item-check">
+                        <label for="archiveCheck${idx}"></label>
+                    </div>
+                `;
+                    $(this).prepend(checkbox); // 각 li 앞에 체크박스 삽입
+                }
+            });
+
+            updateCount(); // 선택 수 갱신
+        });
+
+        // ✅ [2] 전체 선택 체크박스 변경 시
+        $checkAll.on("change", function () {
+            const isChecked = $(this).is(":checked");
+            $list.find(".archive-item-check").prop("checked", isChecked); // 모든 항목 체크 반영
+            updateCount(); // 선택 수 갱신
+        });
+
+        // ✅ [3] 개별 항목 체크박스 변경 시
+        $list.on("change", ".archive-item-check", function () {
+            updateCount(); // 선택 수 갱신
+        });
+
+        // ✅ [4] 삭제 버튼 클릭 시: 선택된 항목 제거
+        $deleteBtn.on("click", function () {
+            $list.find(".archive-item-check:checked").closest("li").remove(); // 체크된 항목 삭제
+            updateCount(); // 선택 수 갱신
+        });
+
+        // ✅ [5] 완료 버튼 클릭 시: 편집 모드 종료 및 UI 복원
+        $completeBtn.on("click", function () {
+            $editBtn.addClass("show"); // 편집 버튼 다시 표시
+            $removeBtn.addClass("show"); // 닫기 버튼 다시 표시
+            $checkGroup.removeClass("show"); // 전체 선택 영역 숨김
+            $editBox.removeClass("show"); // 편집 버튼 영역 숨김
+
+            $checkAll.prop("checked", false); // 전체 선택 해제
+            $list.find(".archive-item-check").prop("checked", false); // 개별 체크 해제
+
+            // ✅ 삽입된 체크박스 DOM 제거 (기존 항목 복구)
+            $list.find(".archive-item-check").each(function () {
+                const $checkGroup = $(this).closest(".check-group");
+                $checkGroup.remove();
+            });
+
+            updateCount(); // 선택 수 초기화
+        });
+
+        // ✅ [6] 선택된 항목 수를 상단에 표시하는 함수
+        function updateCount() {
+            const count = $list.find(".archive-item-check:checked").length;
+            $checkGroup.find("label span").text(count); // 숫자 반영
+        }
+    }
+
+    /* -- 아카이브 패널 내부 에디터 기능 초기화 -- */
+    function exitArchiveEditMode() {
+        const $panel = $("#archive");
+        const $editBtn = $panel.find(".btn-archive-edit");
+        const $removeBtn = $panel.find(".btn-sidenav-remove");
+        const $checkGroup = $panel.find(".archive-check-group");
+        const $editBox = $panel.find(".archive-edit");
+        const $checkAll = $("#archiveCheckAll");
+        const $list = $panel.find(".archive-list");
+
+        // ✅ UI 상태 복구
+        $editBtn.addClass("show");          // 편집 버튼 다시 보이게
+        $removeBtn.addClass("show");        // 닫기 버튼 다시 보이게
+        $checkGroup.removeClass("show");    // 전체선택 영역 숨김
+        $editBox.removeClass("show");       // 편집용 버튼 숨김
+
+        // ✅ 체크 상태 초기화
+        $checkAll.prop("checked", false);   // 전체 선택 해제
+        $list.find(".archive-item-check").prop("checked", false); // 개별 체크 해제
+
+        // ✅ 삽입된 체크박스 DOM 제거
+        $list.find(".archive-item-check").each(function () {
+            const $checkGroup = $(this).closest(".check-group");
+            $checkGroup.remove(); // li에서 체크박스 그룹 제거
+        });
+
+        // ✅ 선택 수 초기화
+        $checkGroup.find("label span").text("0");
+    }
+
+
+    // function openOptionMenu(event) {
+    //     event.stopPropagation(); // 이벤트 버블링 방지
+    //     $(".item-option").removeClass("active"); // 다른 열린 옵션 닫기
+    //     $(this).siblings(".item-option").addClass("active"); // 현재 클릭한 옵션 열기
+    // }
+
+    // function closeOptionMenu(event) {
+    //     if (!$(event.target).closest(".history-item-option").length) {
+    //         $(".item-option").removeClass("active"); // 영역 밖 클릭 시 닫기
+    //     }
+    // }
+
+    // $(".btn-op-open").click(openOptionMenu);
+    // $(document).click(closeOptionMenu);
 
     function toggleMainMenu(e) {
         e.preventDefault();

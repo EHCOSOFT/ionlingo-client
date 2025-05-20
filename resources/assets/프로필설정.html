@@ -14,12 +14,15 @@
 
     <div class="wrap">
         <div class="lnb">
-            <!-- 상단 -->
+            <!-- ✅ 상단 헤더 -->
             <header class="header">
+                <!-- ☰ 메뉴 열기 버튼 -->
                 <div class="container">
                     <button type="button" class="header-menu btn-nav-open" tabindex="0">
                         <i class="ico ico-lg i-menu"></i>
                     </button>
+
+                    <!-- 로고 -->
                     <a href="javasciprt:void(0);" class="header-logo" tabindex="0">
                         <img src="img/mo-logo.svg" alt="로고" class="normal">
                         <img src="img/logo.svg" alt="로고" class="active">
@@ -27,14 +30,18 @@
                 </div>
             </header>
             <div class="nav-wrap">
-                <!-- 좌측 메뉴 -->
+                <!-- ✅ 좌측 내비게이션 메뉴 -->
                 <nav class="nav">
+                    <!-- 좌측 메뉴 상단 -->
                     <div class="nav-top">
+                        <!-- 메뉴 닫기 버튼 -->
                         <button type="button" class="btn-nav-remove" tabindex="0">
                             <i class="ico ico-md i-menu-toggle"></i>
                         </button>
                     </div>
+                    <!-- 메뉴 리스트 -->
                     <div class="nav-list">
+                        <!-- 🔹 상단 기능 메뉴 -->
                         <ul class="navbar">
                             <li>
                                 <a href="javascipt:void(0);" class="nav-item" tabindex="0">
@@ -48,6 +55,7 @@
                                     <span>문서요약</span>
                                 </a>
                             </li>
+                            <!-- 🔸 서브 메뉴 (지식 목록) -->
                             <li class="nav-sub-item">
                                 <a href="javascipt:void(0);" class="nav-item" tabindex="0">
                                     <i class="ico ico-md i-category"></i>
@@ -66,6 +74,7 @@
                                     </li>
                                 </ul>
                             </li>
+                            <!-- 🔹 일반 메뉴 반복 -->
                             <li>
                                 <a href="javascipt:void(0);" class="nav-item" tabindex="0">
                                     <i class="ico ico-md i-category"></i>
@@ -79,9 +88,11 @@
                                 </a>
                             </li>
                         </ul>
+                        <!-- 🔹 아카이브/최근기록 -->
                         <ul class="navbar">
                             <li>
-                                <a href="javascipt:void(0);" class="nav-item" tabindex="0" data-target="archive">
+                                <a href="javascipt:void(0);" class="nav-item" data-modal-id="alertModal" tabindex="0"
+                                    data-target="archive">
                                     <i class="ico ico-md i-archive"></i>
                                     <span>아카이브</span>
                                 </a>
@@ -94,12 +105,18 @@
                             </li>
                         </ul>
                     </div>
+                    <!-- 🔧 하단 설정/로그인 -->
                     <div class="nav-bottom">
+                        <!-- 비로그인 상태 -->
+                        <!-- <a href="로그인.html" class="login">로그인</a> -->
+
+                        <!-- 로그인 상태 (주석 처리됨) -->
                         <a href="프로필설정.html" class="user">
                             <div class="user-img"></div>
                             <h6>홍길동님</h6>
                         </a>
-                        <!-- 환경설정 -->
+
+                        <!-- 환경설정 메뉴 -->
                         <div class="nav-option">
                             <button type="button" type="button" class="btn-nav-set">
                                 <i class="ico ico-md i-set"></i>
@@ -110,7 +127,6 @@
                                 </li>
                                 <li>
                                     <a href="javascript:void(0);">테마설정</a>
-                                    <!-- 테마 설정 -->
                                     <ul class="theme-options">
                                         <li>
                                             <div class="radio-group">
@@ -126,122 +142,371 @@
                                         </li>
                                     </ul>
                                 </li>
-                                <li>
+                                <!-- 로그아웃 (비로그인 상태이므로 주석 처리됨) -->
+                                <!-- <li>
                                     <a href="javascript:void(0);">로그아웃</a>
-                                </li>
+                                </li> -->
                             </ul>
                         </div>
                     </div>
                 </nav>
+                <!-- ✅ 우측 상세 패널 -->
                 <div class="nav-side">
-                    <div class="nav-side-top">
-                        <button type="button" class="btn-sidenav-remove" tabindex="0">
-                            <i class="ico ico-md i-menu-toggle"></i>
-                        </button>
-                        <button type="button" class="btn-archive-edit" style="display: none;">
-                            <i class="ico ico-md i-edit"></i>
-                        </button>
-                        <div class="check-group">
-                            <input type="checkbox" id="checkAll">
-                            <label for="checkAll"><span>0</span>개 선택됨</label>
-                        </div>
-                        <div class="archive-edit">
-                            <a href="javascipt:void(0);" class="btn-archive-delete">삭제</a>
-                            <a href="javascipt:void(0);" class="btn-archive-complete">완료</a>
-                        </div>
-                    </div>
+                    <!-- 우측 패널 콘텐츠 -->
                     <div class="nav-side-content">
-                        <!-- 최근기록 -->
+                        <!-- 최근기록 패널 -->
                         <div class="nav-content" id="history">
-                            <ul class="nav-item-list history-list">
-                                <li>
-                                    <div class="history-item">
-                                        <div class="item-top">
-                                            <p>메뉴경로</p>
-                                            <div class="history-item-option">
-                                                <button type="button" class="btn-op-open" tabindex="0">
-                                                    <img src="img/ico/i-dot.svg" alt="옵션">
-                                                </button>
-                                                <div class="item-option">
-                                                    <p>2024. 01. 01</p>
-                                                    <a href="javascript:void(0);">
-                                                        <img src="img/ico/i-trash.svg" alt="삭제">
-                                                        삭제
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <a href="javascipt:void(0);" class="history-text" tabindex="0">오늘의 날씨는 어떤가요? 오늘의
-                                            날씨는 어떤가요?</a>
+                            <div class="nav-side-top">
+                                <!-- 상세패널 닫기 -->
+                                <button type="button" class="btn-sidenav-remove show" tabindex="0">
+                                    <i class="ico ico-md i-menu-toggle"></i>
+                                </button>
+                                <!-- 최근기록 편집 버튼 -->
+                                <button type="button" class="btn-history-edit show">
+                                    <i class="ico ico-md i-edit"></i>
+                                </button>
+                                <!-- 최근기록 전체 선택 영역 -->
+                                <div class="check-group history-check-group">
+                                    <input type="checkbox" id="historyCheckAll">
+                                    <label for="historyCheckAll"><span>0</span>개 선택됨</label>
+                                </div>
+                                <!-- 최근기록 편집 모드 버튼들:: 기본적으로 숨겨져 있음 -->
+                                <div class="history-edit">
+                                    <a href="javascipt:void(0);" class="btn-history-delete">삭제</a>
+                                    <a href="javascipt:void(0);" class="btn-history-complete">완료</a>
+                                </div>
+                            </div>
+                            <div class="nav-child-content">
+                                <ul class="tabs">
+                                    <li class="active" data-target="#conver">대화</li>
+                                    <li data-target="#document">문서</li>
+                                </ul>
+                                <div class="tab-content active" id="conver">
+                                    <div class="history-group">
+                                        <h6>오늘</h6>
+                                        <ul class="history-list">
+                                            <li>
+                                                <a href="javascipt:void(0);" class="history-text" tabindex="0">입력한 질문
+                                                    입력한
+                                                    질문입력한
+                                                    질문 입력한 질문입력한 질문 입력한 질문입력한 질문 입력한 질문입력한 질문 입력한 질문</a>
+                                            </li>
+                                            <li>
+                                                <a href="javascipt:void(0);" class="history-text" tabindex="0">입력한 질문
+                                                    입력한
+                                                    질문입력한
+                                                    질문 입력한 질문입력한 질문 입력한 질문입력한 질문 입력한 질문입력한 질문 입력한 질문</a>
+                                            </li>
+                                            <li>
+                                                <a href="javascipt:void(0);" class="history-text" tabindex="0">입력한 질문
+                                                    입력한
+                                                    질문입력한
+                                                    질문 입력한 질문입력한 질문 입력한 질문입력한 질문 입력한 질문입력한 질문 입력한 질문</a>
+                                            </li>
+                                            <li>
+                                                <a href="javascipt:void(0);" class="history-text" tabindex="0">입력한 질문
+                                                    입력한
+                                                    질문입력한
+                                                    질문 입력한 질문입력한 질문 입력한 질문입력한 질문 입력한 질문입력한 질문 입력한 질문</a>
+                                            </li>
+                                            <li>
+                                                <a href="javascipt:void(0);" class="history-text" tabindex="0">입력한 질문
+                                                    입력한
+                                                    질문입력한
+                                                    질문 입력한 질문입력한 질문 입력한 질문입력한 질문 입력한 질문입력한 질문 입력한 질문</a>
+                                            </li>
+                                            <li>
+                                                <a href="javascipt:void(0);" class="history-text" tabindex="0">입력한 질문
+                                                    입력한
+                                                    질문입력한
+                                                    질문 입력한 질문입력한 질문 입력한 질문입력한 질문 입력한 질문입력한 질문 입력한 질문</a>
+                                            </li>
+                                            <li>
+                                                <a href="javascipt:void(0);" class="history-text" tabindex="0">입력한 질문
+                                                    입력한
+                                                    질문입력한
+                                                    질문 입력한 질문입력한 질문 입력한 질문입력한 질문 입력한 질문입력한 질문 입력한 질문</a>
+                                            </li>
+                                            <li>
+                                                <a href="javascipt:void(0);" class="history-text" tabindex="0">입력한 질문
+                                                    입력한
+                                                    질문입력한
+                                                    질문 입력한 질문입력한 질문 입력한 질문입력한 질문 입력한 질문입력한 질문 입력한 질문</a>
+                                            </li>
+                                            <li>
+                                                <a href="javascipt:void(0);" class="history-text" tabindex="0">입력한 질문
+                                                    입력한
+                                                    질문입력한
+                                                    질문 입력한 질문입력한 질문 입력한 질문입력한 질문 입력한 질문입력한 질문 입력한 질문</a>
+                                            </li>
+                                            <li>
+                                                <a href="javascipt:void(0);" class="history-text" tabindex="0">입력한 질문
+                                                    입력한
+                                                    질문입력한
+                                                    질문 입력한 질문입력한 질문 입력한 질문입력한 질문 입력한 질문입력한 질문 입력한 질문</a>
+                                            </li>
+                                            <li>
+                                                <a href="javascipt:void(0);" class="history-text" tabindex="0">입력한 질문
+                                                    입력한
+                                                    질문입력한
+                                                    질문 입력한 질문입력한 질문 입력한 질문입력한 질문 입력한 질문입력한 질문 입력한 질문</a>
+                                            </li>
+                                            <li>
+                                                <a href="javascipt:void(0);" class="history-text" tabindex="0">입력한 질문
+                                                    입력한
+                                                    질문입력한
+                                                    질문 입력한 질문입력한 질문 입력한 질문입력한 질문 입력한 질문입력한 질문 입력한 질문</a>
+                                            </li>
+                                            <li>
+                                                <a href="javascipt:void(0);" class="history-text" tabindex="0">입력한 질문
+                                                    입력한
+                                                    질문입력한
+                                                    질문 입력한 질문입력한 질문 입력한 질문입력한 질문 입력한 질문입력한 질문 입력한 질문</a>
+                                            </li>
+                                            <li>
+                                                <a href="javascipt:void(0);" class="history-text" tabindex="0">입력한 질문
+                                                    입력한
+                                                    질문입력한
+                                                    질문 입력한 질문입력한 질문 입력한 질문입력한 질문 입력한 질문입력한 질문 입력한 질문</a>
+                                            </li>
+                                            <li>
+                                                <a href="javascipt:void(0);" class="history-text" tabindex="0">입력한 질문
+                                                    입력한
+                                                    질문입력한
+                                                    질문 입력한 질문입력한 질문 입력한 질문입력한 질문 입력한 질문입력한 질문 입력한 질문</a>
+                                            </li>
+                                            <li>
+                                                <a href="javascipt:void(0);" class="history-text" tabindex="0">입력한 질문
+                                                    입력한
+                                                    질문입력한
+                                                    질문 입력한 질문입력한 질문 입력한 질문입력한 질문 입력한 질문입력한 질문 입력한 질문</a>
+                                            </li>
+                                        </ul>
                                     </div>
-                                </li>
-                                <li>
-                                    <div class="history-item">
-                                        <div class="item-top">
-                                            <p>메뉴경로</p>
-                                            <div class="history-item-option">
-                                                <button type="button" class="btn-op-open" tabindex="0">
-                                                    <img src="img/ico/i-dot.svg" alt="옵션">
-                                                </button>
-                                                <div class="item-option">
-                                                    <p>2024. 01. 01</p>
-                                                    <a href="javascript:void(0);">
-                                                        <img src="img/ico/i-trash.svg" alt="삭제">
-                                                        삭제
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <a href="javascipt:void(0);" class="history-text" tabindex="0">오늘의 날씨는 어떤가요? 오늘의
-                                            날씨는 어떤가요?</a>
+                                    <div class="history-group">
+                                        <h6>어제</h6>
+                                        <ul class="history-list">
+                                            <li>
+                                                <a href="javascipt:void(0);" class="history-text" tabindex="0">입력한 질문
+                                                    입력한
+                                                    질문입력한
+                                                    질문 입력한 질문입력한 질문 입력한 질문입력한 질문 입력한 질문입력한 질문 입력한 질문</a>
+                                            </li>
+                                            <li>
+                                                <a href="javascipt:void(0);" class="history-text" tabindex="0">입력한 질문
+                                                    입력한
+                                                    질문입력한
+                                                    질문 입력한 질문입력한 질문 입력한 질문입력한 질문 입력한 질문입력한 질문 입력한 질문</a>
+                                            </li>
+                                        </ul>
                                     </div>
-                                </li>
-                            </ul>
+                                    <div class="history-group">
+                                        <h6>어제</h6>
+                                        <ul class="history-list">
+                                            <li>
+                                                <a href="javascipt:void(0);" class="history-text" tabindex="0">입력한 질문
+                                                    입력한
+                                                    질문입력한
+                                                    질문 입력한 질문입력한 질문 입력한 질문입력한 질문 입력한 질문입력한 질문 입력한 질문</a>
+                                            </li>
+                                            <li>
+                                                <a href="javascipt:void(0);" class="history-text" tabindex="0">입력한 질문
+                                                    입력한
+                                                    질문입력한
+                                                    질문 입력한 질문입력한 질문 입력한 질문입력한 질문 입력한 질문입력한 질문 입력한 질문</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="tab-content" id="document">
+                                    <div class="history-group">
+                                        <h6>오늘</h6>
+                                        <ul class="history-list">
+                                            <li>
+                                                <a href="javascipt:void(0);" class="history-text" tabindex="0">입력한 질문
+                                                    입력한
+                                                    질문입력한
+                                                    질문 입력한 질문입력한 질문 입력한 질문입력한 질문 입력한 질문입력한 질문 입력한 질문</a>
+                                            </li>
+                                            <li>
+                                                <a href="javascipt:void(0);" class="history-text" tabindex="0">입력한 질문
+                                                    입력한
+                                                    질문입력한
+                                                    질문 입력한 질문입력한 질문 입력한 질문입력한 질문 입력한 질문입력한 질문 입력한 질문</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="history-group">
+                                        <h6>어제</h6>
+                                        <ul class="history-list">
+                                            <li>
+                                                <a href="javascipt:void(0);" class="history-text" tabindex="0">입력한 질문
+                                                    입력한
+                                                    질문입력한
+                                                    질문 입력한 질문입력한 질문 입력한 질문입력한 질문 입력한 질문입력한 질문 입력한 질문</a>
+                                            </li>
+                                            <li>
+                                                <a href="javascipt:void(0);" class="history-text" tabindex="0">입력한 질문
+                                                    입력한
+                                                    질문입력한
+                                                    질문 입력한 질문입력한 질문 입력한 질문입력한 질문 입력한 질문입력한 질문 입력한 질문</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
-                        <!-- 아카이브 -->
+                        <!-- 아카이브 패널 -->
                         <div class="nav-content" id="archive">
-                            <ul class="nav-item-list history-list">
+                            <div class="nav-side-top">
+                                <!-- 상세패널 닫기 -->
+                                <button type="button" class="btn-sidenav-remove show" tabindex="0">
+                                    <i class="ico ico-md i-menu-toggle"></i>
+                                </button>
+                                <!-- 아카이브 편집 버튼 -->
+                                <button type="button" class="btn-archive-edit show">
+                                    <i class="ico ico-md i-edit"></i>
+                                </button>
+                                <!-- 아카이브 전체 선택 영역 -->
+                                <div class="check-group archive-check-group">
+                                    <input type="checkbox" id="archiveCheckAll">
+                                    <label for="archiveCheckAll"><span>0</span>개 선택됨</label>
+                                </div>
+                                <!-- 아카이브 편집 모드 버튼들:: 기본적으로 숨겨져 있음 -->
+                                <div class="archive-edit">
+                                    <a href="javascipt:void(0);" class="btn-archive-delete">삭제</a>
+                                    <a href="javascipt:void(0);" class="btn-archive-complete">완료</a>
+                                </div>
+                            </div>
+                            <ul class="archive-list">
                                 <li>
-                                    <div class="check-group">
-                                        <input type="checkbox" id="check01" class="item-check">
-                                        <label for="check01"></label>
-                                    </div>
-                                    <div class="history-item">
+                                    <div class="archive-item">
                                         <div class="item-top">
                                             <p>메뉴경로</p>
-                                            <div class="history-item-option">
-                                                <div class="item-option">
-                                                    <p>2024. 01. 01</p>
-                                                    <a href="javascript:void(0);">
-                                                        <img src="img/ico/i-trash.svg" alt="삭제">
-                                                        삭제
-                                                    </a>
-                                                </div>
-                                            </div>
                                         </div>
-                                        <a href="javascipt:void(0);" class="history-text" tabindex="0">오늘의 날씨는 어떤가요? 오늘의
+                                        <a href="javascipt:void(0);" class="archive-text" tabindex="0">ㅇㅇㅇㅇ오늘의 날씨는 어떤가요?
+                                            오늘의
                                             날씨는 어떤가요?</a>
                                     </div>
                                 </li>
                                 <li>
-                                    <div class="check-group">
-                                        <input type="checkbox" id="check02" class="item-check">
-                                        <label for="check02"></label>
-                                    </div>
-                                    <div class="history-item">
+                                    <div class="archive-item">
                                         <div class="item-top">
                                             <p>메뉴경로</p>
-                                            <div class="history-item-option">
-                                                <div class="item-option">
-                                                    <p>2024. 01. 01</p>
-                                                    <a href="javascript:void(0);">
-                                                        <img src="img/ico/i-trash.svg" alt="삭제">
-                                                        삭제
-                                                    </a>
-                                                </div>
-                                            </div>
                                         </div>
-                                        <a href="javascipt:void(0);" class="history-text" tabindex="0">오늘의 날씨는 어떤가요? 오늘의
+                                        <a href="javascipt:void(0);" class="archive-text" tabindex="0">ㅇㅇㅇㅇ오늘의 날씨는 어떤가요?
+                                            오늘의
+                                            날씨는 어떤가요?</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="archive-item">
+                                        <div class="item-top">
+                                            <p>메뉴경로</p>
+                                        </div>
+                                        <a href="javascipt:void(0);" class="archive-text" tabindex="0">ㅇㅇㅇㅇ오늘의 날씨는 어떤가요?
+                                            오늘의
+                                            날씨는 어떤가요?</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="archive-item">
+                                        <div class="item-top">
+                                            <p>메뉴경로</p>
+                                        </div>
+                                        <a href="javascipt:void(0);" class="archive-text" tabindex="0">ㅇㅇㅇㅇ오늘의 날씨는 어떤가요?
+                                            오늘의
+                                            날씨는 어떤가요?</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="archive-item">
+                                        <div class="item-top">
+                                            <p>메뉴경로</p>
+                                        </div>
+                                        <a href="javascipt:void(0);" class="archive-text" tabindex="0">ㅇㅇㅇㅇ오늘의 날씨는 어떤가요?
+                                            오늘의
+                                            날씨는 어떤가요?</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="archive-item">
+                                        <div class="item-top">
+                                            <p>메뉴경로</p>
+                                        </div>
+                                        <a href="javascipt:void(0);" class="archive-text" tabindex="0">ㅇㅇㅇㅇ오늘의 날씨는 어떤가요?
+                                            오늘의
+                                            날씨는 어떤가요?</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="archive-item">
+                                        <div class="item-top">
+                                            <p>메뉴경로</p>
+                                        </div>
+                                        <a href="javascipt:void(0);" class="archive-text" tabindex="0">ㅇㅇㅇㅇ오늘의 날씨는 어떤가요?
+                                            오늘의
+                                            날씨는 어떤가요?</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="archive-item">
+                                        <div class="item-top">
+                                            <p>메뉴경로</p>
+                                        </div>
+                                        <a href="javascipt:void(0);" class="archive-text" tabindex="0">ㅇㅇㅇㅇ오늘의 날씨는 어떤가요?
+                                            오늘의
+                                            날씨는 어떤가요?</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="archive-item">
+                                        <div class="item-top">
+                                            <p>메뉴경로</p>
+                                        </div>
+                                        <a href="javascipt:void(0);" class="archive-text" tabindex="0">ㅇㅇㅇㅇ오늘의 날씨는 어떤가요?
+                                            오늘의
+                                            날씨는 어떤가요?</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="archive-item">
+                                        <div class="item-top">
+                                            <p>메뉴경로</p>
+                                        </div>
+                                        <a href="javascipt:void(0);" class="archive-text" tabindex="0">ㅇㅇㅇㅇ오늘의 날씨는 어떤가요?
+                                            오늘의
+                                            날씨는 어떤가요?</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="archive-item">
+                                        <div class="item-top">
+                                            <p>메뉴경로</p>
+                                        </div>
+                                        <a href="javascipt:void(0);" class="archive-text" tabindex="0">ㅇㅇㅇㅇ오늘의 날씨는 어떤가요?
+                                            오늘의
+                                            날씨는 어떤가요?</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="archive-item">
+                                        <div class="item-top">
+                                            <p>메뉴경로</p>
+                                        </div>
+                                        <a href="javascipt:void(0);" class="archive-text" tabindex="0">ㅇㅇㅇㅇ오늘의 날씨는 어떤가요?
+                                            오늘의
+                                            날씨는 어떤가요?</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="archive-item">
+                                        <div class="item-top">
+                                            <p>메뉴경로</p>
+                                        </div>
+                                        <a href="javascipt:void(0);" class="archive-text" tabindex="0">ㅇㅇㅇㅇ오늘의 날씨는 어떤가요?
+                                            오늘의
                                             날씨는 어떤가요?</a>
                                     </div>
                                 </li>
@@ -250,6 +515,7 @@
                     </div>
                 </div>
             </div>
+            <!-- 메뉴 접기 버튼 -->
             <button type="button" class="btn-nav-reduction" tabindex="0">
                 <i class="ico ico-md i-menu-toggle"></i>
             </button>
